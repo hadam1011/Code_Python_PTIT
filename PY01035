@@ -1,0 +1,31 @@
+def convert(n):
+    ind, res = len(n) - 1, 0
+    while ind >= 0:
+        if(n[ind] == '1'): res += pow(2, len(n) - ind - 1)
+        ind -= 1
+    return res    
+
+dict = {
+    0 : '0', 1 : '1', 2 : '2', 3 : '3', 4 : '4', 5 : '5', 
+    6 : '6', 7 : '7', 8 : '8', 9 : '9', 10 : 'A', 
+    11 : 'B', 12 : 'C', 13 : 'D', 14 : 'E', 15 : 'F'
+}
+
+s = input()
+index, res = len(s), []
+while index - 3 >= 0:
+    res.append(dict[convert(s[index - 3 : index])])
+    index -= 3
+
+mod = len(s) % 3
+if mod != 0: res.append(dict[convert(s[:mod])])
+
+res.reverse()
+while res[0] == '0': 
+    if len(res) == 1: break
+    res.pop(0)
+
+for x in res: print(x, end='')
+print()
+
+    
