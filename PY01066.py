@@ -18,6 +18,6 @@ while  t > 0:
     if check(s1,s2) == 1:
         print("YES")
     else:
-        print("NO")
+        print("NO") 
     t -= 1
     
